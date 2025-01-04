@@ -1,55 +1,182 @@
 .meeting-list-container {
-  background: #fff;
-  border-radius: 8px;
-  padding: 1.5rem 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
   width: 100%;
-  max-width: 700px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  overflow-x: auto;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-100);
 }
+
+.meeting-list-container h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--gray-800);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 .meeting-list-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--gray-200);
 }
-.meeting-list-table th, .meeting-list-table td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #e5e7eb;
+
+.meeting-list-table th,
+.meeting-list-table td {
+  padding: 1rem 1.25rem;
   text-align: left;
-  word-break: break-word;
+  border-bottom: 1px solid var(--gray-200);
 }
+
 .meeting-list-table th {
-  background: #f3f4f6;
+  background: var(--gray-50);
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
+
+.meeting-list-table tr:last-child td {
+  border-bottom: none;
+}
+
+.meeting-list-table tr:hover:not(.editing) {
+  background: var(--gray-50);
+}
+
+.meeting-list-table tr.editing {
+  background: rgba(99, 102, 241, 0.05);
+}
+
 .meeting-list-table input,
 .meeting-list-table select {
-  padding: 0.5rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
-  font-size: 1rem;
-  background: #f9fafb;
-  max-width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  background: white;
   width: 100%;
-  box-sizing: border-box;
+  transition: all 0.2s ease;
 }
-.meeting-list-table tr.editing {
-  background: #e0e7ff;
+
+.meeting-list-table input:focus,
+.meeting-list-table select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
+
 .edit-btn, .delete-btn {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.1rem;
-  margin-right: 0.25rem;
-  border-radius: 4px;
-  padding: 0.3rem 0.5rem;
-  transition: background 0.2s;
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
 }
+
+.edit-btn {
+  color: var(--primary);
+}
+
 .edit-btn:hover {
-  background: #fbbf24;
+  background: rgba(99, 102, 241, 0.1);
+  transform: scale(1.1);
 }
+
+.delete-btn {
+  color: var(--danger);
+}
+
 .delete-btn:hover {
-  background: #ef4444;
-  color: #fff;
-} 
+  background: rgba(239, 68, 68, 0.1);
+  transform: scale(1.1);
+}
+
+.view-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  border-radius: 8px;
+  padding: 0.5rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: var(--info);
+}
+
+.view-btn:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: scale(1.1);
+}
+
+.participants-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+
+.description-preview {
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.level-badge {
+  display: inline-flex;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.level-badge.team {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.level-badge.department {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--warning);
+}
+
+.level-badge.company {
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--primary);
+}
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: var(--danger);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
