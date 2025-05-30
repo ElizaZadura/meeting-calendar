@@ -1,0 +1,44 @@
+.meeting-form-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.meeting-form h2 {
+  margin-bottom: 1.5rem;
+}
+.meeting-form .form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.meeting-form input,
+.meeting-form select,
+.meeting-form textarea {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.meeting-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+.create-meeting-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.2s;
+}
+.create-meeting-btn:hover {
+  background: #1d4ed8;
+} 

@@ -1,0 +1,32 @@
+.sidebar {
+  width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  margin: 2rem 1rem 2rem 2rem;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  min-height: 400px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  margin-bottom: 1rem;
+}
+.sidebar button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.sidebar button.active, .sidebar button:hover {
+  background: #2563eb;
+  color: #fff;
+} 

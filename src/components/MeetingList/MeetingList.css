@@ -1,0 +1,38 @@
+.meeting-list-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  width: 100%;
+  max-width: 700px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.meeting-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.meeting-list-table th, .meeting-list-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+.meeting-list-table th {
+  background: #f3f4f6;
+}
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  padding: 0.3rem 0.5rem;
+  transition: background 0.2s;
+}
+.edit-btn:hover {
+  background: #fbbf24;
+}
+.delete-btn:hover {
+  background: #ef4444;
+  color: #fff;
+} 

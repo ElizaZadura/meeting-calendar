@@ -1,0 +1,27 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #222;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  height: 56px;
+}
+.logo {
+  font-size: 1.5rem;
+  margin-right: 2rem;
+}
+.topbar-nav a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.topbar-nav a:hover {
+  color: #2563eb;
+}
+.user-info {
+  margin-left: 2rem;
+  font-size: 1rem;
+} 
