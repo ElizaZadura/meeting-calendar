@@ -6,22 +6,7 @@ import './App.css';
 
 function App() {
   // Move meetings to state
-  const [meetings, setMeetings] = useState([
-    {
-      id: 1,
-      title: 'Project Kickoff',
-      date: '2024-05-15',
-      time: '10:00 AM',
-      level: 'Team',
-    },
-    {
-      id: 2,
-      title: 'Quarterly Review',
-      date: '2024-06-01',
-      time: '02:00 PM',
-      level: 'Department',
-    },
-  ]);
+  const [meetings, setMeetings] = useState([]);
 
   return (
     <AppLayout>
