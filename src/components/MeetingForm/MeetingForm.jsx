@@ -16,12 +16,41 @@ const MeetingForm = ({ meetings, setMeetings }) => {
   const [level, setLevel] = useState('');
   const [participants, setParticipants] = useState('');
   const [description, setDescription] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Create a new meeting object
+    setError('');
+
+    // Required fields
+    if (!title || !date || !time || !level) {
+      setError('Please fill in all required fields.');
+      return;
+    }
+
+    // Date/time must be in the future
+    const now = new Date();
+    const selectedDateTime = new Date(`${date}T${time}`);
+    if (selectedDateTime < now) {
+      setError('Meeting date and time must be in the future.');
+      return;
+    }
+
+    // Validate participants (if provided)
+    if (participants) {
+      const emails = participants.split(',').map(email => email.trim());
+      const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      for (let email of emails) {
+        if (email && !emailRegex.test(email)) {
+          setError(`Invalid email: ${email}`);
+          return;
+        }
+      }
+    }
+
+    // All good, add meeting
     const newMeeting = {
-      id: Date.now(), // simple unique id
+      id: Date.now(),
       title,
       date,
       time,
@@ -29,9 +58,7 @@ const MeetingForm = ({ meetings, setMeetings }) => {
       participants,
       description,
     };
-    // Add to meetings list
     setMeetings([...meetings, newMeeting]);
-    // Clear form
     setTitle('');
     setDate('');
     setTime('');
@@ -47,6 +74,7 @@ const MeetingForm = ({ meetings, setMeetings }) => {
   return (
     <div className="meeting-form-container">
       <h2>Schedule a New Meeting</h2>
+      {error && <div style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
       <form className="meeting-form" onSubmit={handleSubmit}>
         <div className="form-row">
           <input type="text" placeholder="Enter meeting title" name="title" value={title} onChange={e => setTitle(e.target.value)} required />
