@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import './MeetingList.css';
 
+const LEVEL_OPTIONS = [
+  { value: '', label: 'Choose level' },
+  { value: 'Team', label: 'Team' },
+  { value: 'Department', label: 'Department' },
+  { value: 'Company', label: 'Company' }
+];
+
 const MeetingList = ({ meetings, setMeetings }) => {
   const [editingId, setEditingId] = useState(null);
   const [editFields, setEditFields] = useState({});
@@ -47,7 +54,7 @@ const MeetingList = ({ meetings, setMeetings }) => {
         </thead>
         <tbody>
           {meetings.map((meeting, idx) => (
-            <tr key={meeting.id}>
+            <tr key={meeting.id} className={editingId === meeting.id ? 'editing' : ''}>
               <td>{idx + 1}</td>
               {editingId === meeting.id ? (
                 <>
@@ -75,11 +82,18 @@ const MeetingList = ({ meetings, setMeetings }) => {
                     />
                   </td>
                   <td>
-                    <input
+                    <select
                       name="level"
                       value={editFields.level}
                       onChange={handleFieldChange}
-                    />
+                      required
+                    >
+                      {LEVEL_OPTIONS.map(opt => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
+                      ))}
+                    </select>
                   </td>
                   <td>
                     <button className="edit-btn" onClick={() => handleSave(meeting.id)}>💾</button>

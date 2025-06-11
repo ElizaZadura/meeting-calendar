@@ -5,26 +5,43 @@
   width: 100%;
   max-width: 700px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  overflow-x: auto;
 }
 .meeting-list-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  table-layout: fixed;
 }
 .meeting-list-table th, .meeting-list-table td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e7eb;
   text-align: left;
+  word-break: break-word;
 }
 .meeting-list-table th {
   background: #f3f4f6;
+}
+.meeting-list-table input,
+.meeting-list-table select {
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 1rem;
+  background: #f9fafb;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.meeting-list-table tr.editing {
+  background: #e0e7ff;
 }
 .edit-btn, .delete-btn {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
   border-radius: 4px;
   padding: 0.3rem 0.5rem;
   transition: background 0.2s;
