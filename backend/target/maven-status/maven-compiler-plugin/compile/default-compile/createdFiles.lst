@@ -1,0 +1,4 @@
+com\example\meetingcalendar\model\Meeting.class
+com\example\meetingcalendar\controller\MeetingController.class
+com\example\meetingcalendar\repository\MeetingRepository.class
+com\example\meetingcalendar\MeetingCalendarBackendApplication.class
