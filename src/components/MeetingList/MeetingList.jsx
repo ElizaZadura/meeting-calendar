@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './MeetingList.css';
 
 const LEVEL_OPTIONS = [
@@ -11,14 +12,18 @@ const LEVEL_OPTIONS = [
 const MeetingList = ({ meetings, setMeetings }) => {
   const [editingId, setEditingId] = useState(null);
   const [editFields, setEditFields] = useState({});
+  const [error, setError] = useState('');
 
   const handleDelete = (id) => {
-    setMeetings(meetings.filter(meeting => meeting.id !== id));
+    axios.delete(`http://localhost:8080/api/meetings/${id}`)
+      .then(() => setMeetings(meetings.filter(meeting => meeting.id !== id)))
+      .catch(() => setError('Failed to delete meeting.'));
   };
 
   const handleEdit = (meeting) => {
     setEditingId(meeting.id);
     setEditFields({ ...meeting });
+    setError('');
   };
 
   const handleFieldChange = (e) => {
@@ -26,21 +31,25 @@ const MeetingList = ({ meetings, setMeetings }) => {
   };
 
   const handleSave = (id) => {
-    setMeetings(meetings.map(m =>
-      m.id === id ? { ...editFields, id } : m
-    ));
-    setEditingId(null);
-    setEditFields({});
+    axios.put(`http://localhost:8080/api/meetings/${id}`, editFields)
+      .then(res => {
+        setMeetings(meetings.map(m => m.id === id ? res.data : m));
+        setEditingId(null);
+        setEditFields({});
+      })
+      .catch(() => setError('Failed to update meeting.'));
   };
 
   const handleCancel = () => {
     setEditingId(null);
     setEditFields({});
+    setError('');
   };
 
   return (
     <div className="meeting-list-container">
       <h3>List of Created Meetings</h3>
+      {error && <div style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
       <table className="meeting-list-table">
         <thead>
           <tr>
