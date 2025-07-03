@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './MeetingForm.css';
 
 const LEVEL_OPTIONS = [
@@ -48,23 +49,20 @@ const MeetingForm = ({ meetings, setMeetings }) => {
       }
     }
 
-    // All good, add meeting
-    const newMeeting = {
-      id: Date.now(),
-      title,
-      date,
-      time,
-      level,
-      participants,
-      description,
-    };
-    setMeetings([...meetings, newMeeting]);
-    setTitle('');
-    setDate('');
-    setTime('');
-    setLevel('');
-    setParticipants('');
-    setDescription('');
+    // All good, add meeting via API
+    axios.post('http://localhost:8080/api/meetings', {
+      title, date, time, level, participants, description
+    })
+      .then(res => {
+        setMeetings(prev => [...prev, res.data]);
+        setTitle('');
+        setDate('');
+        setTime('');
+        setLevel('');
+        setParticipants('');
+        setDescription('');
+      })
+      .catch(() => setError('Failed to add meeting.'));
   };
 
   const handleDelete = (id) => {
