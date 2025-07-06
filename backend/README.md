@@ -52,4 +52,4 @@ The API will be available at [http://localhost:8080](http://localhost:8080).
 
 ---
 
-See the main project README for frontend instructions. 
+See the main project README for frontend instructions.
