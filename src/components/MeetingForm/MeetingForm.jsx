@@ -65,14 +65,11 @@ const MeetingForm = ({ meetings, setMeetings }) => {
       .catch(() => setError('Failed to add meeting.'));
   };
 
-  const handleDelete = (id) => {
-    setMeetings(meetings.filter(meeting => meeting.id !== id));
-  };
 
   return (
     <div className="meeting-form-container">
       <h2>Schedule a New Meeting</h2>
-      {error && <div style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
+      {error && <div className="error-message">{error}</div>}
       <form className="meeting-form" onSubmit={handleSubmit}>
         <div className="form-row">
           <input type="text" placeholder="Enter meeting title" name="title" value={title} onChange={e => setTitle(e.target.value)} required />

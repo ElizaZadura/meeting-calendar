@@ -1,44 +1,90 @@
 .meeting-form-container {
-  background: #fff;
-  border-radius: 8px;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
   width: 100%;
-  max-width: 700px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-100);
 }
-.meeting-form h2 {
-  margin-bottom: 1.5rem;
+
+.meeting-form-container h2 {
+  margin: 0 0 1.5rem 0;
+  color: var(--gray-800);
+  font-size: 1.75rem;
+  font-weight: 700;
 }
+
 .meeting-form .form-row {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
+
 .meeting-form input,
 .meeting-form select,
 .meeting-form textarea {
   flex: 1;
-  padding: 0.75rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
+  padding: 0.875rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: 12px;
   font-size: 1rem;
+  background: var(--gray-50);
+  color: var(--gray-900);
+  transition: all 0.2s ease;
 }
+
+.meeting-form input:hover,
+.meeting-form select:hover,
+.meeting-form textarea:hover {
+  border-color: var(--gray-300);
+}
+
+.meeting-form input:focus,
+.meeting-form select:focus,
+.meeting-form textarea:focus {
+  background: white;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
 .meeting-form textarea {
-  min-height: 80px;
+  min-height: 100px;
   resize: vertical;
+  font-family: inherit;
 }
+
 .create-meeting-btn {
-  background: #2563eb;
-  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  padding: 0.875rem 2rem;
+  border-radius: 12px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 1rem;
-  transition: background 0.2s;
+  margin-top: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-md);
+  width: 100%;
 }
+
 .create-meeting-btn:hover {
-  background: #1d4ed8;
-} 
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-dark));
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.create-meeting-btn:active {
+  transform: translateY(0);
+}
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: var(--danger);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}

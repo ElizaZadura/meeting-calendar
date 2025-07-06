@@ -3,26 +3,33 @@
 This is the backend REST API for the Meeting Calendar app.
 
 ## Features
+
 - CRUD API for managing meetings
 - Built with Spring Boot
 
 ## Getting Started
 
 ### Prerequisites
+
 - Java 17 or later
 - Maven (or use the Maven wrapper)
 
 ### Running the App
 
 1. Navigate to the backend directory:
+
    ```bash
    cd backend
    ```
+
 2. Build and run the app:
+
    ```bash
    mvn spring-boot:run
    ```
+
    or, if using the Maven wrapper:
+
    ```bash
    ./mvnw spring-boot:run
    ```
@@ -45,4 +52,4 @@ The API will be available at [http://localhost:8080](http://localhost:8080).
 
 ---
 
-See the main project README for frontend instructions. 
+See the main project README for frontend instructions.
